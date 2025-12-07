@@ -27,7 +27,7 @@ def flatten_response(d: dict|list):
                 metrics[f"{i}_{subk}"] = subv
     else:
         for k, v in d.items():
-            k_name = re.sub(r"[^a-zA-Z0-9_-]", "-", k)
+            k_name = re.sub(r"[^a-zA-Z0-9_-]", "_", k)
             if isinstance(v, dict):
                 submetrics = flatten_response(v)
                 for subk, subv in submetrics.items():
